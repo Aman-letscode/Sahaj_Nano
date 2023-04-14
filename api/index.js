@@ -25,7 +25,8 @@ app.get('/greeting',(req,res)=>{
 
 app.get('/employee/all',(req,res)=>{
     data1 = fs.readFileSync('./data.json');
-    if(data1.length)
+    // if(data1.length)
+res.send(data1);
 })
 
 // app.get('/employee/:id',(req,res)=>{
