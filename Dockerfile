@@ -2,16 +2,18 @@
 
 FROM node:18-alpine
 
-# RUN mkdir -p /app
+RUN mkdir -p /app
 
-# WORKDIR /app
+WORKDIR /app
+
+RUN cd ./api
 
 COPY package*.json ./
 
-COPY ./api ./api
+# COPY ./api ./api
 
 RUN npm install 
 
 EXPOSE 8080
 
-CMD [ "node", "run","dev"]
+CMD [ "npm", "run","dev"]

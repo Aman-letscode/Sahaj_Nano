@@ -7,9 +7,15 @@ let data1 = []
 const port = 8080
 app.use(express.json())
 app.use(cors('http://localhost:8080'))
+
+
 app.get('/',(req,res)=>{
     const object = fs.readFileSync('./data.json')
     data1 = JSON.parse(object);
+
+    
+    // obj["id"] = num.toString();
+        console.log(typeof num);
     res.send(JSON.stringify(data1))
 })
 app.get('/greeting',(req,res)=>{
@@ -18,26 +24,34 @@ app.get('/greeting',(req,res)=>{
     res.status(200).send("Hello World");
 })
 
+
+
 app.post('/employee',(req,res)=>{
     const obj = {}
     const name = req.body.name;
     const city = req.body.city;
-    // if(name===''){
-    //     res.status(501).send("Mention the name")
+    if(!req.body){
+        res.status(501).send("Mention the name and city")
 
-    // }
-    // obj['name'] = 
-    // fs.readFile('./data.json',"utf-8",(err,data)=>{
-    //     if(err) throw err;
-    //     if(data!=)
-    //     data1 = data;
+    }else{
 
-    // })
+    
+    
 
-    const object = fs.readFileSync('./data.json')
-    data1 = json.parse(object);
-    res.json(json.stringify(data1))
-
+        
+        const object = fs.readFileSync('./data.json');
+        
+        data1 = JSON.parse(object);
+        let last_id = data1.at(-1);
+    let num = Number(last_id["id"]);
+    num++;
+    obj["id"] = num.toString();
+    obj['name'] = name;
+    obj['city'] = city;
+    data1.push(obj);
+    fs.writeFileSync('./data.json',JSON.stringify(data1));
+    res.send(JSON.stringify(data1))
+}
 })
 
 app.listen(port, ()=>{
