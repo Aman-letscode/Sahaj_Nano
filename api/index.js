@@ -19,12 +19,19 @@ app.get('/',(req,res)=>{
     res.send(JSON.stringify(data1))
 })
 app.get('/greeting',(req,res)=>{
-
-
-    res.status(200).send("Hello World");
+    res.status(200).send("Hello World!");
 })
 
 
+app.get('/employee/all',(req,res)=>{
+    data1 = fs.readFileSync('./data.json');
+    if(data1.length)
+})
+
+app.get('/employee/:id',(req,res)=>{
+
+    res.status(200).send()
+})
 
 app.post('/employee',(req,res)=>{
     const obj = {}
