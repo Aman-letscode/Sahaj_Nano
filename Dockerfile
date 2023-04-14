@@ -1,6 +1,6 @@
 # FROM alpine:latest
 
-FROM node:slim
+FROM node:18-alpine
 
 RUN mkdir -p /app
 
