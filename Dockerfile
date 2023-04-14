@@ -1,17 +1,18 @@
 # FROM alpine:latest
 
-FROM node:18-alpine
+FROM node:slim
 
-RUN mkdir -p /app
+RUN mkdir -p /api
 
-WORKDIR /app
+WORKDIR /api
 
-RUN cd ./api
-
-COPY package*.json ./
+# RUN cd ./api
+# COPY package*.json ./
 
 # COPY ./api ./api
 
+COPY . .
+RUN cd api
 RUN npm install 
 
 EXPOSE 8080
