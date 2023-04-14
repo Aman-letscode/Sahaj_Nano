@@ -54,7 +54,7 @@ app.post('/employee',(req,res)=>{
     obj['city'] = city;
     data1.push(obj);
     fs.writeFileSync('./data.json',JSON.stringify(data1));
-    res.send(JSON.stringify(data1))
+    res.status(201).send({"employeeId":obj["id"]})
 }
 })
 
