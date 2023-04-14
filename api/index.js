@@ -3,11 +3,18 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express()
 const fs = require('fs')
-const data1 = []
+let data1 = []
 const port = 8080
 app.use(express.json())
 app.use(cors('http://localhost:8080'))
+app.get('/',(req,res)=>{
+    const object = fs.readFileSync('./data.json')
+    data1 = JSON.parse(object);
+    res.send(JSON.stringify(data1))
+})
 app.get('/greeting',(req,res)=>{
+
+
     res.status(200).send("Hello World");
 })
 

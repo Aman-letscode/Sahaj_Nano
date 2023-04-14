@@ -14,4 +14,4 @@ RUN npm install
 
 EXPOSE 8080
 
-CMD [ "node", "api/index.js" ]
+CMD [ "node", "run","dev"]
