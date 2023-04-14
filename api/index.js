@@ -28,10 +28,10 @@ app.get('/employee/all',(req,res)=>{
     if(data1.length)
 })
 
-app.get('/employee/:id',(req,res)=>{
+// app.get('/employee/:id',(req,res)=>{
 
-    res.status(200).send()
-})
+//     res.status(200).send()
+// })
 
 app.post('/employee',(req,res)=>{
     const obj = {}
