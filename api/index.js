@@ -35,10 +35,6 @@ app.post('/employee',(req,res)=>{
 
     }else{
 
-    
-    
-
-        
         const object = fs.readFileSync('./data.json');
         
         data1 = JSON.parse(object);

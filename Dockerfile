@@ -2,17 +2,18 @@
 
 FROM node:slim
 
-RUN mkdir -p /api
+RUN mkdir -p /app
 
-WORKDIR /api
+WORKDIR /app
 
 # RUN cd ./api
 # COPY package*.json ./
 
 # COPY ./api ./api
 
-COPY . .
-RUN cd api
+COPY ./api .
+# RUN cd api
+
 RUN npm install 
 
 EXPOSE 8080
